@@ -1,5 +1,8 @@
 @import 'tailwindcss';
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
 
 @theme{
   --breakpoint-*: initial;
@@ -10,4 +13,59 @@
   --color-white:#FAFAFA;
   --color-red:#DB4444;
   --color-white:#FAFAFA;
+}
+.slick-dots li button::before{
+  width:12px;
+  height:12px;
+  border-radius: 50%;
+  background-color: #5e5e5e;
+  content: '';
+  opacity: 1;
+}
+.slick-dots li.slick-active button::before{
+  content: '';
+  background-color: #DB4444;
+  outline: 2px solid white;
+}
+.slick-dots{
+  bottom:13px;
+}
+
+.slick-next{
+  width:46px;
+  height:46px;
+  overflow: hidden;
+  left:1110px;
+  top:-53px;
+  /* background-color: black; */
+}
+.slick-next:before{
+  display: block;
+  font-size: 46px;
+  color:white;
+  background-color: black;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.slick-prev{
+  width:46px;
+  height:46px;
+  overflow: hidden;
+  left: 1054px;
+    top: -53px;
+}
+.slick-prev:before{
+  display: block;
+  font-size: 46px;
+  color:white;
+  background-color: black;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.slick-arrow{
+  position:absolute;
+
+}
+.bannerDiv .slick-arrow{
+  display: none !important;
 }
