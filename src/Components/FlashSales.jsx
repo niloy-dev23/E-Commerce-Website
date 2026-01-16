@@ -6,6 +6,10 @@ import flashSales3 from "../assets/flashSales3.png";
 import flashSales4 from "../assets/flashSales4.png";
 import fiveStar from "../assets/fiveStar.png";
 import Slider from "react-slick";
+import Card from "./Card";
+import SectionHead from "./SectionHead";
+import Counter from "./Counter";
+import Flex from "./Flex";
 
 const FlashSales = () => {
   function SampleNextArrow(props) {
@@ -67,108 +71,57 @@ const FlashSales = () => {
   return (
     <>
       <Container className="mt-38.5">
-        <div className="flex items-center gap-x-2.5">
-          <div className="w-5 h-10 bg-red rounded-sm"></div>
-          <p className="text-red text-[16px] font-semibold">Today's</p>
-        </div>
+        <Flex className='items-end gap-21.75'>
+          <SectionHead
+            subtitle="Today's"
+            title='Flash Sales'
+          />
+          <Counter/>
+        </Flex>
         <div className="mt-10 slider-container">
           <Slider {...settings} className="flex gap-x-7.5">
-            <div className="w-67.5">
-              <img src={flashSales1} alt="Flash" />
-              <p className="font-medium text-[16px] mt-4">
-                HAVIT HV-G92 Gamepad
-              </p>
-              <p className="mt-2 text-red font-medium text-[16px]">
-                $120{" "}
-                <span className="text-black opacity-50 line-through ml-3">
-                  $160
-                </span>
-              </p>
-              <div className="mt-2 flex gap-x-2">
-                <img src={fiveStar} alt="Stars" />
-                <p className="font-semibold text-[14px] opacity-50">(88)</p>
-              </div>
-            </div>
-            <div className="w-67.5">
-              <img src={flashSales2} alt="Flash" />
-              <p className="font-medium text-[16px] mt-4">
-                AK-900 Wired Keyboard
-              </p>
-              <p className="mt-2 text-red font-medium text-[16px]">
-                $960{" "}
-                <span className="text-black opacity-50 line-through ml-3">
-                  $1160
-                </span>
-              </p>
-              <div className="mt-2 flex gap-x-2">
-                <img src={fiveStar} alt="Stars" />
-                <p className="font-semibold text-[14px] opacity-50">(75)</p>
-              </div>
-            </div>
-            <div className="w-67.5">
-              <img src={flashSales3} alt="Flash" />
-              <p className="font-medium text-[16px] mt-4">
-                IPS LCD Gaming Monitor
-              </p>
-              <p className="mt-2 text-red font-medium text-[16px]">
-                $370{" "}
-                <span className="text-black opacity-50 line-through ml-3">
-                  $400
-                </span>
-              </p>
-              <div className="mt-2 flex gap-x-2">
-                <img src={fiveStar} alt="Stars" />
-                <p className="font-semibold text-[14px] opacity-50">(99)</p>
-              </div>
-            </div>
-            <div className="w-67.5">
-              <img src={flashSales4} alt="Flash" />
-              <p className="font-medium text-[16px] mt-4">
-                S-Series Comfort Chair{" "}
-              </p>
-              <p className="mt-2 text-red font-medium text-[16px]">
-                $375{" "}
-                <span className="text-black opacity-50 line-through ml-3">
-                  $400
-                </span>
-              </p>
-              <div className="mt-2 flex gap-x-2">
-                <img src={fiveStar} alt="Stars" />
-                <p className="font-semibold text-[14px] opacity-50">(99)</p>
-              </div>
-            </div>
-            <div className="w-67.5">
-              <img src={flashSales1} alt="Flash" />
-              <p className="font-medium text-[16px] mt-4">
-                HAVIT HV-G92 Gamepad
-              </p>
-              <p className="mt-2 text-red font-medium text-[16px]">
-                $120{" "}
-                <span className="text-black opacity-50 line-through ml-3">
-                  $160
-                </span>
-              </p>
-              <div className="mt-2 flex gap-x-2">
-                <img src={fiveStar} alt="Stars" />
-                <p className="font-semibold text-[14px] opacity-50">(88)</p>
-              </div>
-            </div>
-            <div className="w-67.5">
-              <img src={flashSales1} alt="Flash" />
-              <p className="font-medium text-[16px] mt-4">
-                HAVIT HV-G92 Gamepad
-              </p>
-              <p className="mt-2 text-red font-medium text-[16px]">
-                $120{" "}
-                <span className="text-black opacity-50 line-through ml-3">
-                  $160
-                </span>
-              </p>
-              <div className="mt-2 flex gap-x-2">
-                <img src={fiveStar} alt="Stars" />
-                <p className="font-semibold text-[14px] opacity-50">(88)</p>
-              </div>
-            </div>
+            <Card 
+              imgSrc={flashSales1}
+              discount='40'
+              title='HAVIT HV-G92 Gamepad'
+              price='160'
+              rating='88'
+            />
+            <Card 
+              imgSrc={flashSales2}
+              discount='35'
+              title='AK-900 Wired Keyboard'
+              price='1160'
+              rating='75'
+            />
+            <Card 
+              imgSrc={flashSales3}
+              discount='30'
+              title='IPS LCD Gaming Monitor'
+              price='400'
+              rating='99'
+            />
+            <Card 
+              imgSrc={flashSales4}
+              discount='25'
+              title='S-Series Comfort Chair'
+              price='400'
+              rating='99'
+            />
+            <Card 
+              imgSrc={flashSales1}
+              discount='40'
+              title='HAVIT HV-G92 Gamepad'
+              price='160'
+              rating='88'
+            />
+            <Card 
+              imgSrc={flashSales2}
+              discount='35'
+              title='AK-900 Wired Keyboard'
+              price='1160'
+              rating='75'
+            />
           </Slider>
         </div>
         <div className="text-center mt-9.25">
