@@ -31,38 +31,6 @@
 .slick-dots{
   bottom:13px;
 }
-
-.slick-next{
-  width:46px;
-  height:46px;
-  overflow: hidden;
-  left:1110px;
-  top:-53px;
-  /* background-color: black; */
-}
-.slick-next:before{
-  display: block;
-  font-size: 46px;
-  color:white;
-  background-color: black;
-  border-radius: 50%;
-  overflow: hidden;
-}
-.slick-prev{
-  width:46px;
-  height:46px;
-  overflow: hidden;
-  left: 1054px;
-    top: -53px;
-}
-.slick-prev:before{
-  display: block;
-  font-size: 46px;
-  color:white;
-  background-color: black;
-  border-radius: 50%;
-  overflow: hidden;
-}
 .slick-arrow{
   position:absolute;
 

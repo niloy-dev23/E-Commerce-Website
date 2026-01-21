@@ -10,27 +10,27 @@ import Card from "./Card";
 import SectionHead from "./SectionHead";
 import Counter from "./Counter";
 import Flex from "./Flex";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import CommonButton from "./CommonButton";
 
 const FlashSales = () => {
   function SampleNextArrow(props) {
-    const { className, style, onClick } = props;
+    const { className, onClick } = props;
     return (
       <div
-        className={className}
-        style={{ ...style, display: "block"  }}
+        className='w-11.5 h-11.5 absolute -top-20 right-5.5 bg-[#F5F5F5] rounded-full flex justify-center items-center'
         onClick={onClick}
-      />
+      ><FaArrowRight className="text-[24px]" /></div>
     );
   }
 
   function SamplePrevArrow(props) {
-    const { className, style, onClick } = props;
+    const { className, onClick } = props;
     return (
       <div
-        className={className}
-        style={{ ...style, display: "block" }}
+        className='w-11.5 h-11.5 absolute -top-20 right-20.5 bg-[#F5F5F5] rounded-full flex justify-center items-center'
         onClick={onClick}
-      />
+      ><FaArrowLeft className="text-[24px]" /></div>
     );
   }
   var settings = {
@@ -70,7 +70,7 @@ const FlashSales = () => {
   };
   return (
     <>
-      <Container className="mt-38.5">
+      <Container className="mt-38.5 pb-15 border-b border-b-black">
         <Flex className='items-end gap-21.75'>
           <SectionHead
             subtitle="Today's"
@@ -125,10 +125,9 @@ const FlashSales = () => {
           </Slider>
         </div>
         <div className="text-center mt-9.25">
-            <button className="text-white text-[16px] font-medium bg-red px-12 py-3 rounded-sm w-fit">View All Products</button>
-        </div>
-        <div className="py-50">
-
+            <CommonButton 
+              name='View All Products'
+            />
         </div>
       </Container>
     </>

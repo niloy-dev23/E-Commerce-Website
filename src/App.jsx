@@ -6,6 +6,9 @@ import Header from './Components/Header'
 import Navbar from './Components/Navbar'
 import Banner from './Components/Banner'
 import FlashSales from './Components/FlashSales'
+import Categories from './Components/Categories'
+import BestSelling from './Components/BestSelling'
+import EnhanceMusic from './Components/EnhanceMusic'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -16,6 +19,9 @@ function App() {
       <Navbar/>
       <Banner/>
       <FlashSales/>
+      <Categories/>
+      <BestSelling/>
+      <EnhanceMusic/>
     </>
   )
 }
