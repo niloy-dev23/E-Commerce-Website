@@ -2,10 +2,10 @@ import fiveStar from "../assets/fiveStar.png";
 import { FiEye } from 'react-icons/fi';
 import { FaRegHeart } from 'react-icons/fa';
 
-const Card = ({imgSrc, normalPrice , title , discountedPrice , rating}) => {
+const Card = ({imgSrc, normalPrice , title , discountedPrice , rating, className}) => {
   return (
     <>
-        <div className="w-67.5">
+        <div className={`w-67.5 ${className}`}>
                       <div className='w-fit h-fit relative overflow-hidden singleCard'>
                         <img src={imgSrc} alt="Flash" />
                         <div className='absolute p-3 top-0 flex justify-end w-full'>
@@ -23,7 +23,7 @@ const Card = ({imgSrc, normalPrice , title , discountedPrice , rating}) => {
                       <p className="mt-2 text-red font-medium text-[16px]">
                         ${discountedPrice}
                         <span className="text-black opacity-50 line-through ml-3">
-                          ${normalPrice}
+                          {normalPrice}
                         </span>
                       </p>
                       <div className="mt-2 flex gap-x-2">

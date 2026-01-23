@@ -24,21 +24,21 @@ const BestSelling = () => {
       <div className='flex justify-between mt-15'>
         <BestSellingCard
           imgSrc={BestSelling1}
-          normalPrice='360'
+          normalPrice='$360'
           discountedPrice='260'
           title='The North Coat'
           rating='65'
         />
         <BestSellingCard
           imgSrc={BestSelling2}
-          normalPrice='1160'
+          normalPrice='$1160'
           discountedPrice='960'
           title='Gucci Duffle Bag'
           rating='65'
         />
         <BestSellingCard
           imgSrc={BestSelling3}
-          normalPrice='170'
+          normalPrice='$170'
           discountedPrice='160'
           title='RGB Liquid CPU Cooler'
           rating='65'
@@ -46,7 +46,6 @@ const BestSelling = () => {
         <BestSellingCard
           imgSrc={BestSelling4}
           discountedPrice='360'
-          normalPrice='500'
           title='Small BookSelf'
           rating='65'
         />

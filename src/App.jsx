@@ -9,6 +9,9 @@ import FlashSales from './Components/FlashSales'
 import Categories from './Components/Categories'
 import BestSelling from './Components/BestSelling'
 import EnhanceMusic from './Components/EnhanceMusic'
+import OurProducts from './Components/OurProducts'
+import NewArrival from './Components/NewArrival'
+import Footer from './Components/Footer'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -22,6 +25,9 @@ function App() {
       <Categories/>
       <BestSelling/>
       <EnhanceMusic/>
+      <OurProducts/>
+      <NewArrival/>
+      <Footer/>
     </>
   )
 }
