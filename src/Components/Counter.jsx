@@ -17,7 +17,7 @@ useEffect(()=>{
 
   return (
     <>
-        <Flex className='items-center gap-x-2'>
+        <Flex className='items-center gap-x-2 m-auto lg:m-0'>
             <Flex className='items-center gap-x-4.25'>
                 <div>
                     <h2 className='font-medium text-[12px]'>Days</h2>

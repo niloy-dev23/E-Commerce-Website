@@ -17,7 +17,7 @@ const Footer = () => {
   return (
     <div className='w-full pt-20 pb-6 bg-black text-white'>
         <Container>
-            <Flex className='w-full justify-between items-start'>
+            <Flex className='w-full justify-between items-center lg:items-start flex-col lg:flex-row gap-6'>
                 <div>
                     <h1 className='font-inter font-bold text-[24px] mb-6'>Exclusive</h1>
                     <a className='font-medium text-[20px] mt-6'>Subscribe</a>

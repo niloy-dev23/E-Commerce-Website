@@ -13,7 +13,7 @@ const Categories = () => {
     const { onClick } = props;
     return (
       <div
-        className='w-11.5 h-11.5 absolute -top-20 right-5.5 bg-[#F5F5F5] rounded-full flex justify-center items-center'
+        className='hidden w-11.5 h-11.5 absolute -top-20 right-5.5 bg-[#F5F5F5] rounded-full lg:flex justify-center items-center'
         onClick={onClick}
       ><FaArrowRight className="text-[24px]" /></div>
     );
@@ -23,7 +23,7 @@ const Categories = () => {
     const { onClick } = props;
     return (
       <div
-        className='w-11.5 h-11.5 absolute -top-20 right-20.5 bg-[#F5F5F5] rounded-full flex justify-center items-center'
+        className='hidden w-11.5 h-11.5 absolute -top-20 right-20.5 bg-[#F5F5F5] rounded-full lg:flex justify-center items-center'
         onClick={onClick}
       ><FaArrowLeft className="text-[24px]" /></div>
     );
@@ -40,18 +40,17 @@ var settings = {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToShow: 2,
+          slidesToScroll: 2,
           infinite: true,
-          dots: true,
         },
       },
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
         },
       },
       {
@@ -65,64 +64,64 @@ var settings = {
   };
   return (
     <>
-        <Container className='pt-20 pb-17.5 border-b border-b-black'>
+        <Container className='pt-5 lg:pt-20 pb-5 lg:pb-17.5 border-b border-b-black'>
             <SectionHead
                 subtitle='Categories'
                 title='Browse By Category'
             />
             <div className="mt-15 slider-container">
                 <Slider {...settings} className="flex justify-between">
-                    <Flex className="w-42.5 h-36.25 justify-center items-center text-black border border-black rounded-sm hover:bg-red hover:text-white transition duration-500">
+                    <Flex className="w-42.5 mx-auto h-36.25 justify-center items-center text-black border border-black rounded-sm hover:bg-red hover:text-white transition duration-500">
                         <div>
                             <CiMobile3 className="text-[56px] text-center w-full" />
                             <h3 className="mt-4 text-center">Phone</h3>
                         </div>
                     </Flex>
-                    <Flex className="w-42.5 h-36.25 justify-center items-center text-black border border-black rounded-sm hover:bg-red hover:text-white transition duration-500">
+                    <Flex className="w-42.5 mx-auto h-36.25 justify-center items-center text-black border border-black rounded-sm hover:bg-red hover:text-white transition duration-500">
                         <div>
                             <CiMonitor className="text-[56px] text-center w-full" />
                             <h3 className="mt-4 text-center">Computer</h3>
                         </div>
                     </Flex>
 
-                    <Flex className="w-42.5 h-36.25 justify-center items-center text-black border border-black rounded-sm hover:bg-red hover:text-white transition duration-500">
+                    <Flex className="w-42.5 mx-auto h-36.25 justify-center items-center text-black border border-black rounded-sm hover:bg-red hover:text-white transition duration-500">
                         <div>
                             <PiWatchLight className="text-[56px] text-center w-full" />
                             <h3 className="mt-4 text-center">SmartWatch</h3>
                         </div>
                     </Flex>
-                    <Flex className="w-42.5 h-36.25 justify-center items-center text-black border border-black rounded-sm hover:bg-red hover:text-white transition duration-500">
+                    <Flex className="w-42.5 mx-auto h-36.25 justify-center items-center text-black border border-black rounded-sm hover:bg-red hover:text-white transition duration-500">
                         <div>
                             <CiCamera className="text-[56px] text-center w-full" />
                             <h3 className="mt-4 text-center">Camera</h3>
                         </div>
                     </Flex>
-                    <Flex className="w-42.5 h-36.25 justify-center items-center text-black border border-black rounded-sm hover:bg-red hover:text-white transition duration-500">
+                    <Flex className="w-42.5 mx-auto h-36.25 justify-center items-center text-black border border-black rounded-sm hover:bg-red hover:text-white transition duration-500">
                         <div>
                             <CiHeadphones className="text-[56px] text-center w-full" />
                             <h3 className="mt-4 text-center">Headphones</h3>
                         </div>
                     </Flex>
-                    <Flex className="w-42.5 h-36.25 justify-center items-center text-black border border-black rounded-sm hover:bg-red hover:text-white transition duration-500">
+                    <Flex className="w-42.5 mx-auto h-36.25 justify-center items-center text-black border border-black rounded-sm hover:bg-red hover:text-white transition duration-500">
                         <div>
                             <GiConsoleController className="text-[56px] text-center w-full" />
                             <h3 className="mt-4 text-center">Gaming</h3>
                         </div>
                     </Flex>
-                    <Flex className="w-42.5 h-36.25 justify-center items-center text-black border border-black rounded-sm hover:bg-red hover:text-white transition duration-500">
+                    <Flex className="w-42.5 mx-auto h-36.25 justify-center items-center text-black border border-black rounded-sm hover:bg-red hover:text-white transition duration-500">
                         <div>
                             <CiMobile3 className="text-[56px] text-center w-full" />
                             <h3 className="mt-4 text-center">Phone</h3>
                         </div>
                     </Flex>
-                    <Flex className="w-42.5 h-36.25 justify-center items-center text-black border border-black rounded-sm hover:bg-red hover:text-white transition duration-500">
+                    <Flex className="w-42.5 mx-auto h-36.25 justify-center items-center text-black border border-black rounded-sm hover:bg-red hover:text-white transition duration-500">
                         <div>
                             <CiMonitor className="text-[56px] text-center w-full" />
                             <h3 className="mt-4 text-center">Computer</h3>
                         </div>
                     </Flex>
 
-                    <Flex className="w-42.5 h-36.25 justify-center items-center text-black border border-black rounded-sm hover:bg-red hover:text-white transition duration-500">
+                    <Flex className="w-42.5 mx-auto h-36.25 justify-center items-center text-black border border-black rounded-sm hover:bg-red hover:text-white transition duration-500">
                         <div>
                             <PiWatchLight className="text-[56px] text-center w-full" />
                             <h3 className="mt-4 text-center">SmartWatch</h3>

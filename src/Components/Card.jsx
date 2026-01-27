@@ -5,7 +5,7 @@ import { FaRegHeart } from 'react-icons/fa';
 const Card = ({imgSrc, discount, title, price, rating}) => {
   return (
     <>
-        <div className="w-67.5">
+        <div className="mx-auto w-fit">
                       <div className='w-fit h-fit relative overflow-hidden singleCard'>
                         <img src={imgSrc} alt="Flash" />
                         <div className='absolute p-3 top-0 flex justify-between w-full'>

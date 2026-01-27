@@ -18,7 +18,7 @@ const FlashSales = () => {
     const { className, onClick } = props;
     return (
       <div
-        className='w-11.5 h-11.5 absolute -top-20 right-5.5 bg-[#F5F5F5] rounded-full flex justify-center items-center'
+        className='hidden w-11.5 h-11.5 absolute -top-20 right-5.5 bg-[#F5F5F5] rounded-full lg:flex justify-center items-center'
         onClick={onClick}
       ><FaArrowRight className="text-[24px]" /></div>
     );
@@ -28,7 +28,7 @@ const FlashSales = () => {
     const { className, onClick } = props;
     return (
       <div
-        className='w-11.5 h-11.5 absolute -top-20 right-20.5 bg-[#F5F5F5] rounded-full flex justify-center items-center'
+        className='hidden w-11.5 h-11.5 absolute -top-20 right-20.5 bg-[#F5F5F5] rounded-full lg:flex justify-center items-center'
         onClick={onClick}
       ><FaArrowLeft className="text-[24px]" /></div>
     );
@@ -45,18 +45,17 @@ const FlashSales = () => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToShow: 2,
+          slidesToScroll: 2,
           infinite: true,
-          dots: true,
         },
       },
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
         },
       },
       {
@@ -70,8 +69,8 @@ const FlashSales = () => {
   };
   return (
     <>
-      <Container className="mt-38.5 pb-15 border-b border-b-black">
-        <Flex className='items-end gap-21.75'>
+      <Container className="mt-10 lg:mt-38.5 pb-15 border-b border-b-black">
+        <Flex className='flex-col lg:flex-row items-start lg:items-end gap-5 lg:gap-21.75'>
           <SectionHead
             subtitle="Today's"
             title='Flash Sales'
@@ -79,7 +78,7 @@ const FlashSales = () => {
           <Counter/>
         </Flex>
         <div className="mt-10 slider-container">
-          <Slider {...settings} className="flex gap-x-7.5">
+          <Slider {...settings} className="flex gap-x-7.5 justify-center">
             <Card 
               imgSrc={flashSales1}
               discount='40'
