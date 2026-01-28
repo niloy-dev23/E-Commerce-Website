@@ -68,7 +68,7 @@ const OurProducts = () => {
     };  
   return (
     <>
-        <Container className='mt-17.5 mb-42'>
+        <Container className='mt-17.5 lg:mb-42 mb-7'>
             <SectionHead
                 subtitle='Our Products'
                 title='Explore Our Products'

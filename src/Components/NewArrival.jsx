@@ -22,13 +22,17 @@ const NewArrival = () => {
                 />
             </div>
             
-            <div className="grid grid-cols-4 grid-rows-2 gap-7.5 w-full h-150 lg:mb-34">
-                <div className="col-span-2 row-span-2"><img src={Arrival1} alt="Arrival"/></div>
-                <div className="col-span-2 col-start-3 w-fit h-fit"><img src={Arrival2} alt="Arrival"/></div>
-                <div className="col-start-3 row-start-2"><img src={Arrival3} alt="Arrival"/></div>
-                <div className="col-start-4 row-start-2 w-fit h-fit"><img src={Arrival4} alt="Arrival"/></div>
-            </div>
-            <Flex className='lg:w-235.75 mx-auto justify-start lg:justify-between mb-35 flex-col lg:flex-row gap-y-10 lg:gap-0 items-center '>
+            <Flex className='w-full gap-7.5 flex-col lg:flex-row'>
+                <div><img src={Arrival1} alt="Arrival"/></div>
+                <div>
+                    <div ><img src={Arrival2} alt="Arrival"/></div>
+                    <Flex className='mt-7.5 gap-7.5 flex-col lg:flex-row items-center'>
+                        <div><img src={Arrival3} alt="Arrival"/></div>
+                        <div><img src={Arrival4} alt="Arrival"/></div>
+                    </Flex>
+                </div>
+            </Flex>
+            <Flex className='lg:w-235.75 mx-auto justify-start lg:justify-between mb-35 flex-col lg:flex-row gap-y-10 lg:gap-0 items-center lg:mt-34 mt-5'>
                 <Service
                 imgSrc={Service1}
                 feature='FREE AND FAST DELIEVERY'

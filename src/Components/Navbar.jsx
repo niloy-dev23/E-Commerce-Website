@@ -6,6 +6,7 @@ import { HiMagnifyingGlass } from "react-icons/hi2";
 import { CiHeart } from "react-icons/ci";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { AiOutlineBars } from "react-icons/ai";
+import { NavLink } from "react-router";
 
 const Navbar = () => {
 
@@ -25,8 +26,9 @@ const Navbar = () => {
             </div>
             <Flex className={`${showBars ? 'hidden' : 'flex'} items-center justify-between gap-x-37 lg:flex absolute lg:static flex-col lg:flex-row top-38.5 bg-black lg:bg-[#FFFFFF] z-10 w-full lg:w-fit py-4 lg:py-0`}>
               <ul className="flex gap-5 lg:gap-12 font-normal text-[14px] flex-col lg:flex-row text-white lg:text-black">
-                <li>Home</li>
+                <NavLink to='/'>Home</NavLink>
                 <li>Contact</li>
+                <NavLink to='/Shop'>Shop</NavLink>
                 <li>About</li>
                 <li>Sign Up</li>
               </ul>

@@ -10,7 +10,7 @@ const EnhanceMusic = () => {
   return (
     <>
         <Container>
-          <div className='w-full h-fit px-14 py-17.5' style={{
+          <div className='px-14 py-17.5' style={{
             backgroundImage:`url(${JBLBackground})`
           }}>
             <div>
