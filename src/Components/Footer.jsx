@@ -15,7 +15,7 @@ import { PiCopyrightLight } from 'react-icons/pi';
 
 const Footer = () => {
   return (
-    <div className='w-full pt-20 pb-6 bg-black text-white'>
+    <div className='w-full pt-20 pb-6.25 bg-black text-white'>
         <Container>
             <Flex className='w-full justify-between items-center lg:items-start flex-col lg:flex-row gap-6'>
                 <div>
