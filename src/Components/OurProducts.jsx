@@ -16,7 +16,7 @@ const OurProducts = () => {
       const { className, onClick } = props;
       return (
         <div
-          className='w-11.5 h-11.5 absolute -top-20 right-5.5 bg-[#F5F5F5] rounded-full flex justify-center items-center'
+          className='w-11.5 h-11.5 absolute -top-20 right-5.5 bg-[#F5F5F5] rounded-full lg:flex justify-center items-center hidden'
           onClick={onClick}
         ><FaArrowRight className="text-[24px]" /></div>
       );
@@ -26,7 +26,7 @@ const OurProducts = () => {
       const { className, onClick } = props;
       return (
         <div
-          className='w-11.5 h-11.5 absolute -top-20 right-20.5 bg-[#F5F5F5] rounded-full flex justify-center items-center'
+          className='w-11.5 h-11.5 absolute -top-20 right-20.5 bg-[#F5F5F5] rounded-full lg:flex justify-center items-center hidden'
           onClick={onClick}
         ><FaArrowLeft className="text-[24px]" /></div>
       );

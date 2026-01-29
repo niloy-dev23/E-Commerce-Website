@@ -15,7 +15,7 @@ const Card = ({imgSrc, discount, title, price, rating}) => {
                                 <div className='w-8.5 h-8.5 bg-white rounded-full flex justify-center items-center mt-2'><FiEye className='text-[24px] font-bold'/></div>
                             </div>
                         </div>
-                            <p className="font-medium text-[16px] text-white bg-black py-2 text-center absolute w-full transition-all ease-in duration-300 -bottom-10">Add To Cart</p>
+                            <p className="font-medium text-[16px] text-white bg-black py-2 text-center absolute w-full transition-all duration-300 -bottom-10">Add To Cart</p>
 
                       </div>
                       <p className="font-medium text-[16px] mt-4">

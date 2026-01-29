@@ -17,28 +17,28 @@ const MusicCounter = () => {
 
   return (
     <>
-        <Flex className='gap-x-6 mt-8 mb-10'>
-            <Flex className='w-15.5 h-15.5 bg-white rounded-full items-center justify-center'>
+        <Flex className='gap-x-6 mt-8 mb-10 w-full'>
+            <Flex className='lg:w-15.5 lg:h-15.5 w-14 h-14 bg-white rounded-full items-center justify-center'>
                     <div>
-                        <h2 className='font-semibold text-[16px] text-center'>{time.days}</h2>
+                        <h2 className='font-semibold lg:text-[16px] text-[13px] text-center'>{time.days}</h2>
                         <h1 className='text-[11px] text-center'>Days</h1>
                     </div>
             </Flex>
-            <Flex className='w-15.5 h-15.5 bg-white rounded-full items-center justify-center'>
+            <Flex className='lg:w-15.5 lg:h-15.5 w-14 h-14 bg-white rounded-full items-center justify-center'>
                     <div>
-                        <h1 className='font-semibold text-[16px] text-center'>{time.hours}</h1>
+                        <h1 className='font-semibold lg:text-[16px] text-[13px] text-center'>{time.hours}</h1>
                         <h2 className='text-[11px] text-center'>Hours</h2>
                     </div>
             </Flex>
-            <Flex className='w-15.5 h-15.5 bg-white rounded-full items-center justify-center'>
+            <Flex className='lg:w-15.5 lg:h-15.5 w-14 h-14 bg-white rounded-full items-center justify-center'>
                     <div>
-                        <h2 className='font-semibold text-[16px] text-center'>{time.minutes}</h2>
+                        <h2 className='font-semibold lg:text-[16px] text-[13px] text-center'>{time.minutes}</h2>
                         <h1 className='text-[11px] text-center'>Minutes</h1>
                     </div>
             </Flex>
-            <Flex className='w-15.5 h-15.5 bg-white rounded-full items-center justify-center'>
+            <Flex className='lg:w-15.5 lg:h-15.5 w-14 h-14 bg-white rounded-full items-center justify-center'>
                     <div>
-                        <h2 className='font-semibold text-[16px] text-center'>{time.seconds}</h2>
+                        <h2 className='font-semibold lg:text-[16px] text-[13px] text-center'>{time.seconds}</h2>
                         <h1 className='text-[11px] text-center'>Seconds</h1>
                     </div>
             </Flex>

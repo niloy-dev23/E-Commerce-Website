@@ -41,3 +41,15 @@
 .singleCard:hover p{
   bottom:0;
 }
+.navItem::before{
+  content:'';
+  width:0%;
+  height:1px;
+  background-color: black;
+  position:absolute;
+  left:0;
+  bottom:0;
+}
+.navItem:hover::before{
+  width:100%;
+}
