@@ -37,9 +37,6 @@ const Navbar = () => {
                   <NavLink to="/contact" className={({ isActive }) => `navItem before:transition-all before:duration-400 ${isActive ? "border-b border-b-black" : "border-none"}`}>Contact</NavLink>
                 </li>
                 <li className="relative">
-                  <NavLink to="/Shop" className={({ isActive }) => `navItem before:transition-all before:duration-400 ${isActive ? "border-b border-b-black" : "border-none"}`}>Shop</NavLink>
-                </li>
-                <li className="relative">
                   <NavLink to="/signUp" className={({ isActive }) => `navItem before:transition-all before:duration-400 ${isActive ? "border-b border-b-black" : "border-none"}`}>Sign Up</NavLink>
                 </li>
               </ul>

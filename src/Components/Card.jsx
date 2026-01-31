@@ -1,11 +1,13 @@
 import fiveStar from "../assets/fiveStar.png";
 import { FiEye } from 'react-icons/fi';
 import { FaRegHeart } from 'react-icons/fa';
+import { Rate } from "antd";
 
-const Card = ({imgSrc, discount, title, price, rating}) => {
+
+const Card = ({imgSrc, discount, title, price, rating, reviews}) => {
   return (
     <>
-        <div className="mx-auto w-fit">
+        <div className="mx-auto w-67.5">
                       <div className='w-fit h-fit relative overflow-hidden singleCard'>
                         <img src={imgSrc} alt="Flash" />
                         <div className='absolute p-3 top-0 flex justify-between w-full'>
@@ -28,8 +30,8 @@ const Card = ({imgSrc, discount, title, price, rating}) => {
                         </span>
                       </p>
                       <div className="mt-2 flex gap-x-2">
-                        <img src={fiveStar} alt="Stars" />
-                        <p className="font-semibold text-[14px] opacity-50">({rating})</p>
+                        <Rate allowHalf disabled defaultValue={Number(rating)} />
+                        <p className="font-semibold text-[14px] opacity-50">({reviews})</p>
                       </div>
         </div>
     </>

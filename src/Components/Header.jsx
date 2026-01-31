@@ -1,3 +1,4 @@
+import { NavLink } from "react-router"
 import Container from "./Container"
 import Flex from "./Flex"
 
@@ -11,7 +12,7 @@ const Header = () => {
                     <div className="w-[75%]">
                         <Flex className='block'>
                             <p className="ml-auto font-normal text-[14px]">Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</p>
-                            <a className="font-semibold text-[14px] underline">ShopNow</a>
+                            <NavLink className="font-semibold text-[14px] underline" to='/Shop'>ShopNow</NavLink>
                         </Flex>
                     </div>
                     <div className="w-[25%]">

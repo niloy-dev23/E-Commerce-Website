@@ -84,42 +84,48 @@ const FlashSales = () => {
               discount='40'
               title='HAVIT HV-G92 Gamepad'
               price='160'
-              rating='88'
+              rating='4.2'
+              reviews='88'
             />
             <Card 
               imgSrc={flashSales2}
               discount='35'
               title='AK-900 Wired Keyboard'
               price='1160'
-              rating='75'
+              rating='4.2'
+              reviews='88'
             />
             <Card 
               imgSrc={flashSales3}
               discount='30'
               title='IPS LCD Gaming Monitor'
               price='400'
-              rating='99'
+              rating='4.2'
+              reviews='88'
             />
             <Card 
               imgSrc={flashSales4}
               discount='25'
               title='S-Series Comfort Chair'
               price='400'
-              rating='99'
+              rating='4.2'
+              reviews='88'
             />
             <Card 
               imgSrc={flashSales1}
               discount='40'
               title='HAVIT HV-G92 Gamepad'
               price='160'
-              rating='88'
+              rating='4.2'
+              reviews='88'
             />
             <Card 
               imgSrc={flashSales2}
               discount='35'
               title='AK-900 Wired Keyboard'
               price='1160'
-              rating='75'
+              rating='4.2'
+              reviews='88'
             />
           </Slider>
         </div>
