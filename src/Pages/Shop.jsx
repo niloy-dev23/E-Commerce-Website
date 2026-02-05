@@ -5,20 +5,32 @@ import { FaCircle } from "react-icons/fa";
 import Card from "../Components/Card";
 import axios from "axios";
 import BreadCrump from "../Components/BreadCrump";
+import Paginate from "../Components/Paginate";
+import Skeleton from "../Components/Skeleton";
 
 
 const Shop = () => {
 
   const [productData, setProductData] = useState([])
+  const [buffer, setBuffer] = useState(false)
+  const [categories, setCategories] = useState([])
 
   async function apiFetch(){
    await axios.get('https://dummyjson.com/products')
-    .then((product)=>{setProductData(product.data.products)})
+    .then((product)=>{setProductData(product.data.products); setBuffer(true)})
   }
   useEffect(()=>{
     apiFetch()
   }, [])
-  console.log(productData)
+
+  useEffect(()=>{
+    let uniqueCategories = [...new Set(productData.map((item)=>(item.category)))]
+    setCategories(uniqueCategories)
+
+
+  }, [productData])
+
+
   
   
   return (
@@ -42,9 +54,9 @@ const Shop = () => {
               <div>
                 <ul className="flex flex-col gap-4">
                   {
-                    productData.map((item)=>{
+                    categories.map((item)=>{
                        return (
-                        <li>{item.category}</li>
+                        <li className="capitalize">{item}</li>
                        ) 
                     })
                   }
@@ -68,22 +80,21 @@ const Shop = () => {
             </div>
               
           <Flex className='flex-wrap gap-7.5 mb-31.5 text-left lg:w-[83%] w-full'>
-                {
-                  productData.map((item)=>{
-                    return (
-                      <Card 
-                    imgSrc={item.thumbnail}
-                    discount={item.discountPercentage}
-                    title={item.title}
-                    price={item.price}
-                    reviews={item.reviews.length}
-                    rating={item.rating}
-                  />
-                    ) 
-                  })
-                }
-                
-            
+            {buffer ? 
+            <Paginate products={productData} itemsPerPage={9}/>
+             : 
+            <>
+              <Skeleton/>
+              <Skeleton/>
+              <Skeleton/>
+              <Skeleton/>
+              <Skeleton/>
+              <Skeleton/>
+              <Skeleton/>
+              <Skeleton/>
+              <Skeleton/>
+            </> 
+             }
           </Flex>
          </Flex>
       </Container>
