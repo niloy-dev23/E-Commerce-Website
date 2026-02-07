@@ -2,18 +2,22 @@ import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import ReactPaginate from 'react-paginate';
 import Card from './Card';
+import { useSelector } from 'react-redux';
 
 // Example items, to simulate fetching from another resources.
 
 
-const Paginate = ({products, itemsPerPage }) => {
-  const items = products;
+const Paginate = ({ itemsPerPage }) => {
+
+  let allProducts = useSelector((state)=>state.allData.value)
+  const items = allProducts
   function Items({ currentItems }) {
   return (
     <>
       {currentItems &&
-        currentItems.map((item) => (
+        currentItems.map((item, index) => (
               <Card
+                    key={index}
                     imgSrc={item.thumbnail}
                     discount={item.discountPercentage}
                     title={item.title}
@@ -32,7 +36,7 @@ const Paginate = ({products, itemsPerPage }) => {
   // Simulate fetching items from another resources.
   // (This could be items from props; or items loaded in a local state
   // from an API endpoint with useEffect and useState)
-  const endOffset = itemOffset + itemsPerPage;
+  const endOffset = itemOffset + Number(itemsPerPage);
   console.log(`Loading items from ${itemOffset} to ${endOffset}`);
   const currentItems = items.slice(itemOffset, endOffset);
   const pageCount = Math.ceil(items.length / itemsPerPage);

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import Container from "../Components/Container";
 import Flex from "../Components/Flex";
 import { FaCircle } from "react-icons/fa";
@@ -7,6 +7,8 @@ import axios from "axios";
 import BreadCrump from "../Components/BreadCrump";
 import Paginate from "../Components/Paginate";
 import Skeleton from "../Components/Skeleton";
+import { useDispatch, useSelector } from "react-redux";
+import { categoryReducer, productReducer } from "../Redux/Slices/productSlice";
 
 
 const Shop = () => {
@@ -14,10 +16,16 @@ const Shop = () => {
   const [productData, setProductData] = useState([])
   const [buffer, setBuffer] = useState(false)
   const [categories, setCategories] = useState([])
+  const [pageNumber, setPageNumber] = useState(6)
+  console.log(pageNumber)
+
+  const dispatch = useDispatch()
 
   async function apiFetch(){
    await axios.get('https://dummyjson.com/products')
-    .then((product)=>{setProductData(product.data.products); setBuffer(true)})
+    .then((product)=>{setProductData(product.data.products); 
+      dispatch(productReducer(product.data.products))
+      setBuffer(true)})
   }
   useEffect(()=>{
     apiFetch()
@@ -30,7 +38,10 @@ const Shop = () => {
 
   }, [productData])
 
-
+  const categoryClick = (item)=>{
+    let categoryItems = productData.filter((categoryItem)=>categoryItem.category == item)
+    dispatch(categoryReducer(categoryItems))
+  }
   
   
   return (
@@ -40,23 +51,21 @@ const Shop = () => {
         <BreadCrump className='mt-20 mb-12.5'/>
         <Flex className='justify-between flex-col lg:flex-row items-center'>
           <h1 className="font-bold text-[20px] mb-3.75">Shop By Category</h1>
-          <p className=''>Show : <select className="border border-[#D9D9D9] py-0.5 px-11 rounded-[5px]">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
+          <p className=''>Show : <select onChange={(item)=>{setPageNumber(item.target.value)}} className="border border-[#D9D9D9] py-0.5 px-11 rounded-[5px]">
+                <option value={6}>6</option>
+                <option value={9}>9</option>
+                <option value={12}>12</option>
               </select></p>
         </Flex>  
          <Flex className='justify-between flex-col lg:flex-row'>
            <div className="lg:w-[17%] w-full mx-auto text-center lg:text-left mt-5 lg:mt-0">
               <div>
                 <ul className="flex flex-col gap-4">
+                  <li onClick={()=>{dispatch(productReducer(productData))}} className="cursor-pointer capitalize">All Products</li>
                   {
-                    categories.map((item)=>{
+                    categories.map((item, index)=>{
                        return (
-                        <li className="capitalize">{item}</li>
+                        <li key={index} onClick={()=>{categoryClick(item)}} className="capitalize cursor-pointer">{item}</li>
                        ) 
                     })
                   }
@@ -79,9 +88,9 @@ const Shop = () => {
               </Flex>
             </div>
               
-          <Flex className='flex-wrap gap-7.5 mb-31.5 text-left lg:w-[83%] w-full'>
+          <Flex className='flex-wrap gap-7.5 mb-31.5 text-left lg:w-[83%] w-full lg:ml-24.25'>
             {buffer ? 
-            <Paginate products={productData} itemsPerPage={9}/>
+            <Paginate itemsPerPage={pageNumber}/>
              : 
             <>
               <Skeleton/>
