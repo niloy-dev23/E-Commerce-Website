@@ -21,10 +21,20 @@ const ProductDetails = () => {
                     </Flex>
                     <img src={gamepadBig} alt="console" className='w-125'/>
                 </Flex>
-                <div>
+                <div className='w-100'>
                     <h1 className='font-inter text-[24px] font-semibold mmb-4'>Havic HV G-92 Gamepad</h1>
+                    <Flex className='gap-4 my-4'>
+                        <Flex className='gap-2 pr-4 border-r border-r-black'>
+                            <Rate allowHalf disabled defaultValue={3} />
+                            <p className='text-[14px] text-black opacity-50'>(150 Reviews)</p>
+                        </Flex>
+                        <p className='text-[14px] text-[#00FF66]'>In Stock</p>
+                    </Flex>
+                    <p className='text-[14px] w-93.25 pb-6'>PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.</p>
+                    <hr />
                     <Flex>
-                        
+                        <h1>Colours:</h1>
+                        <input type="radio" name="Nothing" className='bg-[#A0BCE0] w-20 h-20'/>
                     </Flex>
                 </div>
             </Flex>
