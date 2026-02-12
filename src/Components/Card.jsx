@@ -2,12 +2,20 @@ import fiveStar from "../assets/fiveStar.png";
 import { FiEye } from 'react-icons/fi';
 import { FaRegHeart } from 'react-icons/fa';
 import { Rate } from "antd";
+import { useNavigate } from "react-router";
+import { useDispatch } from "react-redux";
 
 
-const Card = ({imgSrc, discount, title, price, rating, reviews}) => {
+const Card = ({imgSrc, discount, title, price, rating, reviews, id}) => {
+
+  let navigate = useNavigate()
+  const handleClick = ()=>{
+    navigate(`/productDetails/${id}`)
+  }
+
   return (
     <>
-        <div className="mx-auto lg:mx-0 w-67.5">
+        <div onClick={()=>{handleClick()}} className="mx-auto lg:mx-0 w-67.5">
                       <div className='w-fit h-fit relative overflow-hidden singleCard'>
                         <img src={imgSrc} alt="Flash" />
                         <div className='absolute p-3 top-0 flex justify-between w-full'>

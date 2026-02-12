@@ -18,6 +18,7 @@ const Paginate = ({ itemsPerPage }) => {
         currentItems.map((item, index) => (
               <Card
                     key={index}
+                    id={item.id}
                     imgSrc={item.thumbnail}
                     discount={item.discountPercentage}
                     title={item.title}
