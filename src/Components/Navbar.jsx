@@ -50,7 +50,7 @@ const Navbar = () => {
                   <HiMagnifyingGlass className="text-[24px]" />
                 </Flex>
                 <CiHeart className="text-[32px] text-white lg:text-black" />
-                <MdOutlineShoppingCart className="text-[32px] text-white lg:text-black" />
+                <NavLink to='/CartPage'><MdOutlineShoppingCart className="text-[32px] text-white lg:text-black" /></NavLink>
               </Flex>
             </Flex>
             <AiOutlineBars
