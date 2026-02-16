@@ -7,9 +7,12 @@ import { CiHeart } from "react-icons/ci";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { AiOutlineBars } from "react-icons/ai";
 import { NavLink } from "react-router";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [showBars, setShowBars] = useState(true);
+  let cartItems = useSelector((state)=>state.allData.cart)
+  let numberOfItems = cartItems.length
 
   const handleClick = () => {
     setShowBars(!showBars);
@@ -40,17 +43,25 @@ const Navbar = () => {
                   <NavLink to="/signUp" className={({ isActive }) => `navItem before:transition-all before:duration-400 ${isActive ? "border-b border-b-black" : "border-none"}`}>Sign Up</NavLink>
                 </li>
               </ul>
-              <Flex className="gap-5 items-center mt-3 lg:mt-0">
-                <Flex className="py-2 px-4 items-center justify-between w-60.75 h-9.5 bg-[#F5F5F5]">
+              <Flex className="gap-5 items-center mt-3 lg:mt-0 ">
+                <Flex className="py-1.5 px-4 items-center justify-between w-60.75 h-9.5 bg-[#F5F5F5]">
                   <input
-                    className="placeholder:font-normal placeholder:text-[14px] placeholder:opacity-50"
+                    className="placeholder:font-normal placeholder:text-[14px] placeholder:opacity-50 outline-0 w-[87%]"
                     type="text"
                     placeholder="What are you looking for?"
                   />
-                  <HiMagnifyingGlass className="text-[24px]" />
+                  <HiMagnifyingGlass className="text-[18px]" />
                 </Flex>
-                <CiHeart className="text-[32px] text-white lg:text-black" />
-                <NavLink to='/CartPage'><MdOutlineShoppingCart className="text-[32px] text-white lg:text-black" /></NavLink>
+                <NavLink to='/Wishlist' className="relative">
+                    <CiHeart className="text-[32px] text-white lg:text-black" />
+                    <span className="w-4 h-4 flex justify-center items-center text-[12px] rounded-full bg-red text-white absolute -top-1.25 right-0">5</span>
+                </NavLink>
+                <NavLink to='/CartPage'>
+                  <div className="relative">
+                    <MdOutlineShoppingCart className="text-[32px] text-white lg:text-black" />
+                    <span className="w-4 h-4 flex justify-center items-center text-[12px] rounded-full bg-red text-white absolute -top-1.25 right-0">{numberOfItems}</span>
+                  </div>
+                </NavLink>
               </Flex>
             </Flex>
             <AiOutlineBars

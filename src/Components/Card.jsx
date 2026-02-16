@@ -4,16 +4,29 @@ import { FaRegHeart } from 'react-icons/fa';
 import { Rate } from "antd";
 import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
+import { cartReducer } from "../Redux/Slices/productSlice";
+import { Bounce, toast } from "react-toastify";
 
 
-const Card = ({imgSrc, discount, title, price, rating, reviews, id}) => {
-
+const Card = ({imgSrc, discount, title, price, rating, reviews, id, cardData}) => {
   let navigate = useNavigate()
+  let dispatch = useDispatch()
   const handleClick = ()=>{
     navigate(`/productDetails/${id}`)
   }
   const handleCart = ()=>{
-    navigate(`/CartPage`)
+    dispatch(cartReducer(cardData))
+    toast.success(`${title.slice(0,15)}... added to Cart`, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Bounce,
+    });
   }
 
   return (

@@ -4,8 +4,12 @@ import BreadCrump from '../Components/BreadCrump'
 import Flex from '../Components/Flex'
 import CartItem from '../Components/CartItem'
 import flashSales1 from "../assets/flashSales1.png";
+import { useSelector } from 'react-redux'
 
 const CartPage = () => {
+
+  let cartItems = useSelector((state)=>state.allData.cart)
+
   return (
     <Container className='pt-20 pb-35'>
         <BreadCrump className='mb-20'/>
@@ -15,12 +19,19 @@ const CartPage = () => {
             <p>Quantity</p>
             <p>Subtotal</p>
         </Flex>
-        <CartItem
-            imgSrc={flashSales1}
-            productName="LCD Monitor"
-            price="650"
-            subTotal="650"
-        />
+        {
+          cartItems.map((item, index)=>{
+            return (
+              <CartItem
+                key={index}
+                imgSrc={item.thumbnail}
+                productName={`${item.title.slice(0,15)}...`}
+                price={item.price}
+                subTotal={item.price}
+              />
+            )
+          })
+        }
     </Container>
   )
 }

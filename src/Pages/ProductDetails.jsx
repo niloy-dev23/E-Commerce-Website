@@ -22,6 +22,7 @@ import flashSales2 from "../assets/flashSales2.png";
 import flashSales3 from "../assets/flashSales3.png";
 import flashSales4 from "../assets/flashSales4.png";
 import Card from './../Components/Card';
+import { Bounce, toast } from 'react-toastify'
 
 const ProductDetails = () => {
   const [productData, setProductData] = useState([])
@@ -48,6 +49,7 @@ setReviewNumber(product.data.reviews)
     apiFetch()
   }, [])
   console.log(productData);
+  
   return (
     <>
         <Container className='pt-20 pb-35'>
