@@ -132,6 +132,7 @@ const FlashSales = () => {
         <div className="text-center mt-9.25">
             <CommonButton 
               name='View All Products'
+              className='bg-red text-white'
             />
         </div>
       </Container>

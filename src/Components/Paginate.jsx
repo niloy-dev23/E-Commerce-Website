@@ -17,6 +17,7 @@ const Paginate = ({ itemsPerPage }) => {
       {currentItems &&
         currentItems.map((item, index) => (
               <Card 
+                    wishlistData={item}
                     cardData={item}
                     key={index}
                     id={item.id}

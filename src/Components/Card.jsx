@@ -4,11 +4,11 @@ import { FaRegHeart } from 'react-icons/fa';
 import { Rate } from "antd";
 import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
-import { cartReducer } from "../Redux/Slices/productSlice";
+import { cartReducer, wishlistReducer } from "../Redux/Slices/productSlice";
 import { Bounce, toast } from "react-toastify";
 
 
-const Card = ({imgSrc, discount, title, price, rating, reviews, id, cardData}) => {
+const Card = ({imgSrc, discount, title, price, rating, reviews, id, cardData, wishlistData}) => {
   let navigate = useNavigate()
   let dispatch = useDispatch()
   const handleClick = ()=>{
@@ -17,6 +17,20 @@ const Card = ({imgSrc, discount, title, price, rating, reviews, id, cardData}) =
   const handleCart = ()=>{
     dispatch(cartReducer(cardData))
     toast.success(`${title.slice(0,15)}... added to Cart`, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Bounce,
+    });
+  }
+  const handleWishlist = ()=>{
+    dispatch(wishlistReducer(wishlistData))
+    toast.success(`${title.slice(0,15)}... added to Wishlist`, {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
@@ -37,7 +51,7 @@ const Card = ({imgSrc, discount, title, price, rating, reviews, id, cardData}) =
                         <div className='absolute p-3 top-0 flex justify-between w-full'>
                             <div className='bg-red font-normal text-[12px] flex justify-center items-center w-13.75 h-6.5 rounded-sm text-white'>-{Number(discount)}%</div>
                             <div>
-                                <div className='w-8.5 h-8.5 bg-white rounded-full flex justify-center items-center'><FaRegHeart  className='text-[23px] font-bold'/></div>
+                                <div onClick={handleWishlist} className='w-8.5 h-8.5 bg-white rounded-full flex justify-center items-center cursor-pointer'><FaRegHeart  className='text-[23px] font-bold'/></div>
                                 <div className='w-8.5 h-8.5 bg-white rounded-full flex justify-center items-center mt-2'><FiEye className='text-[24px] font-bold'/></div>
                             </div>
                         </div>

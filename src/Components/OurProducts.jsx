@@ -155,7 +155,7 @@ const OurProducts = () => {
             <div className='text-center'>
                 <CommonButton 
                     name='View All Products'
-                    className='text-center mt-15'
+                    className='text-center mt-15 text-white bg-red'
                 />
             </div>
             

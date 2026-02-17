@@ -54,6 +54,7 @@ const BestSelling = () => {
         />
         <CommonButton
           name='View All'
+          className='bg-red text-white'
         />
       </Flex>
       <div className='mt-15'>

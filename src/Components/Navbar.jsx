@@ -12,7 +12,9 @@ import { useSelector } from "react-redux";
 const Navbar = () => {
   const [showBars, setShowBars] = useState(true);
   let cartItems = useSelector((state)=>state.allData.cart)
+  let wishlistItems = useSelector((state)=>state.allData.wishlist)
   let numberOfItems = cartItems.length
+  let numberOfWishlistItems = wishlistItems.length
 
   const handleClick = () => {
     setShowBars(!showBars);
@@ -54,7 +56,7 @@ const Navbar = () => {
                 </Flex>
                 <NavLink to='/Wishlist' className="relative">
                     <CiHeart className="text-[32px] text-white lg:text-black" />
-                    <span className="w-4 h-4 flex justify-center items-center text-[12px] rounded-full bg-red text-white absolute -top-1.25 right-0">5</span>
+                    <span className="w-4 h-4 flex justify-center items-center text-[12px] rounded-full bg-red text-white absolute -top-1.25 right-0">{numberOfWishlistItems}</span>
                 </NavLink>
                 <NavLink to='/CartPage'>
                   <div className="relative">
