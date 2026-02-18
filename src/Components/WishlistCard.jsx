@@ -1,40 +1,20 @@
-import fiveStar from "../assets/fiveStar.png";
-import { FiEye } from 'react-icons/fi';
-import { FaRegHeart } from 'react-icons/fa';
+import { RiDeleteBin6Line } from "react-icons/ri";
 import { Rate } from "antd";
 import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
-import { cartReducer, wishlistReducer } from "../Redux/Slices/productSlice";
+import { cartReducer } from "../Redux/Slices/productSlice";
 import { Bounce, toast } from "react-toastify";
-import { GoHeartFill } from "react-icons/go";
-import { useState } from "react";
 
 
-const Card = ({imgSrc, discount, title, price, rating, reviews, id, cardData, wishlistData}) => {
+const WishlistCard = ({imgSrc, discount, title,id, price, rating, reviews, cardData}) => {
   let navigate = useNavigate()
   let dispatch = useDispatch()
   const handleClick = ()=>{
     navigate(`/productDetails/${id}`)
   }
-  const [love, setLove] = useState(false)
   const handleCart = ()=>{
     dispatch(cartReducer(cardData))
     toast.success(`${title.slice(0,15)}... added to Cart`, {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: false,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-        transition: Bounce,
-    });
-  }
-  const handleWishlist = ()=>{
-    setLove(!love)
-    dispatch(wishlistReducer(wishlistData))
-    toast.success(`${title.slice(0,15)}... added to Wishlist`, {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
@@ -55,10 +35,7 @@ const Card = ({imgSrc, discount, title, price, rating, reviews, id, cardData, wi
                         <div className='absolute p-3 top-0 flex justify-between w-full'>
                             <div className='bg-red font-normal text-[12px] flex justify-center items-center w-13.75 h-6.5 rounded-sm text-white'>-{Number(discount)}%</div>
                             <div>
-                                <div onClick={handleWishlist} className='w-8.5 h-8.5 bg-white rounded-full flex justify-center items-center cursor-pointer'>
-                                  {love ? <GoHeartFill className="text-pink-500 bg-white text-[24px]" /> : <FaRegHeart  className='text-[23px] font-bold'/>}</div>
-                                
-                                <div className='w-8.5 h-8.5 bg-white rounded-full flex justify-center items-center mt-2'><FiEye className='text-[24px] font-bold'/></div>
+                                <div className='w-8.5 h-8.5 bg-white rounded-full flex justify-center items-center cursor-pointer'><RiDeleteBin6Line className='text-[23px] font-bold'/></div>
                             </div>
                         </div>
                             <p onClick={handleCart} className="cursor-pointer font-medium text-[16px] text-white bg-black py-2 text-center absolute w-full transition-all duration-300 -bottom-10">Add To Cart</p>
@@ -82,4 +59,4 @@ const Card = ({imgSrc, discount, title, price, rating, reviews, id, cardData, wi
   )
 }
 
-export default Card
+export default WishlistCard
