@@ -8,7 +8,7 @@ import BreadCrump from "../Components/BreadCrump";
 import Paginate from "../Components/Paginate";
 import Skeleton from "../Components/Skeleton";
 import { useDispatch, useSelector } from "react-redux";
-import { categoryReducer, productReducer } from "../Redux/Slices/productSlice";
+import { categoryReducer, productReducer } from "../Redux/Slices/ProductSlice";
 
 
 const Shop = () => {
@@ -17,7 +17,6 @@ const Shop = () => {
   const [buffer, setBuffer] = useState(false)
   const [categories, setCategories] = useState([])
   const [pageNumber, setPageNumber] = useState(6)
-  console.log(pageNumber)
 
   const dispatch = useDispatch()
 

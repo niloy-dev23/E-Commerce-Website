@@ -29,6 +29,7 @@ const CartPage = () => {
                 productName={`${item.title.slice(0,15)}...`}
                 price={item.price}
                 subTotal={item.price}
+                id={item.id}
               />
             )
           })

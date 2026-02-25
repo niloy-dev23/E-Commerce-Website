@@ -56,12 +56,12 @@ const Navbar = () => {
                 </Flex>
                 <NavLink to='/Wishlist' className="relative">
                     <CiHeart className="text-[32px] text-white lg:text-black" />
-                    <span className="w-4 h-4 flex justify-center items-center text-[12px] rounded-full bg-red text-white absolute -top-1.25 right-0">{numberOfWishlistItems}</span>
+                    <span className={`w-4 h-4 flex justify-center items-center text-[12px] rounded-full bg-red text-white absolute -top-1.25 right-0 ${numberOfWishlistItems === 0 ? 'hidden' : ''}`}>{numberOfWishlistItems}</span>
                 </NavLink>
                 <NavLink to='/CartPage'>
                   <div className="relative">
                     <MdOutlineShoppingCart className="text-[32px] text-white lg:text-black" />
-                    <span className="w-4 h-4 flex justify-center items-center text-[12px] rounded-full bg-red text-white absolute -top-1.25 right-0">{numberOfItems}</span>
+                    <span className={`w-4 h-4 flex justify-center items-center text-[12px] rounded-full bg-red text-white absolute -top-1.25 right-0 ${numberOfItems === 0 ? 'hidden' : ''}`}>{numberOfItems}</span>
                   </div>
                 </NavLink>
               </Flex>

@@ -13,7 +13,6 @@ import flashSales4 from "../assets/flashSales4.png";
 const Wishlist = () => {
 
   let wishlistItems = useSelector((state)=>state.allData.wishlist)
-  console.log(wishlistItems)
   return (
     <>
         <Container className='pt-20 pb-35'>
@@ -24,6 +23,7 @@ const Wishlist = () => {
               className='bg-transparent text-black outline outline-black'
             />
           </Flex>
+          <h1 className={`text-[20px] text-center mt-2 ${wishlistItems.length === 0 ? 'block' : 'hidden'}`}>There is no item in your wishlist</h1>
           <Flex className='flex-wrap gap-7.5 mt-15 mb-20'>
             {wishlistItems.map((item, index) => (
               <WishlistCard
