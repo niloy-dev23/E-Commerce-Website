@@ -23,7 +23,7 @@ const Wishlist = () => {
               className='bg-transparent text-black outline outline-black'
             />
           </Flex>
-          <h1 className={`text-[20px] text-center mt-2 ${wishlistItems.length === 0 ? 'block' : 'hidden'}`}>There is no item in your wishlist</h1>
+          <h1 className={`text-[20px] text-center mt-2 ${wishlistItems.length === 0 ? 'block' : 'hidden'}`}>There is no item in your Wishlist</h1>
           <Flex className='flex-wrap gap-7.5 mt-15 mb-20'>
             {wishlistItems.map((item, index) => (
               <WishlistCard
