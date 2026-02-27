@@ -4,7 +4,7 @@ import Cross from '../assets/Cross.png'
 import { useDispatch } from 'react-redux'
 import { cartRemoveReducer } from '../Redux/Slices/productSlice'
 import { Bounce, toast } from 'react-toastify'
-
+import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 
 
 const CartItem = ({imgSrc, productName, price, subTotal, id}) => {
@@ -36,7 +36,13 @@ const CartItem = ({imgSrc, productName, price, subTotal, id}) => {
             </Flex>
             <Flex className='justify-between items-center w-185'>
                 <h1>${price}</h1>
-                <input type="number" defaultValue={1} className='px-3 py-1.5 w-18 h-11 outline-0 border border-black rounded-sm'/>
+                <Flex className='rounded-sm border border-black p-2 items-center gap-2'>
+                    <span>9</span>
+                    <div>
+                        <IoIosArrowUp />
+                        <IoIosArrowDown />
+                    </div>
+                </Flex>
                 <h1>${subTotal}</h1>
             </Flex>
         </Flex>
