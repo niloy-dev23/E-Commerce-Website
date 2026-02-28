@@ -29,11 +29,19 @@ export const ProductSlice = createSlice({
     wishlistRemoveReducer:(state, action)=>{
       state.wishlist = state.wishlist.filter(item => item.id !== action.payload)
       localStorage.setItem("wishlist", JSON.stringify(state.wishlist))
+    },
+    incrementRedcucer:(state,action)=>{
+      state.cart = state.cart.map(item => item.id === action.payload ? {...item, quantity: item.quantity + 1} : item)
+      localStorage.setItem("cart", JSON.stringify(state.cart))
+    },
+    decrementRedcucer:(state,action)=>{
+      state.cart = state.cart.map(item => item.id === action.payload ? {...item, quantity: item.quantity - 1} : item)
+      localStorage.setItem("cart", JSON.stringify(state.cart))
     }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { productReducer, categoryReducer, cartReducer, wishlistReducer, wishlistRemoveReducer, cartRemoveReducer } = ProductSlice.actions
+export const { productReducer, categoryReducer, cartReducer, wishlistReducer, wishlistRemoveReducer, cartRemoveReducer, incrementRedcucer, decrementRedcucer } = ProductSlice.actions
 
 export default ProductSlice.reducer

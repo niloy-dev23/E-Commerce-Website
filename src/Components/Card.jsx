@@ -65,7 +65,7 @@ const Card = ({imgSrc, discount, title, price, rating, reviews, id, cardData}) =
   const handleCart = ()=>{
     let matchedItems = cartItems.find(item => item.id === cardData.id)
     if(!matchedItems){
-      dispatch(cartReducer(cardData))
+      dispatch(cartReducer({...cardData, quantity:1}))
       toastSuccessNotify('Cart')
     }
     else{

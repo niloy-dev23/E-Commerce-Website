@@ -10,7 +10,6 @@ import CommonButton from '../Components/CommonButton'
 const CartPage = () => {
 
   let cartItems = useSelector((state)=>state.allData.cart)
-
   return (
     <Container className='pt-20 pb-35'>
         <BreadCrump className='mb-20'/>
@@ -25,10 +24,11 @@ const CartPage = () => {
             return (
               <CartItem
                 key={index}
+                quantity={item.quantity}
                 imgSrc={item.thumbnail}
                 productName={`${item.title.slice(0,15)}...`}
                 price={item.price}
-                subTotal={item.price}
+                subTotal={(item.price * item.quantity).toFixed(2)}
                 id={item.id}
               />
             )
