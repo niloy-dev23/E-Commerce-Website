@@ -2,7 +2,7 @@ import React from 'react'
 import Flex from './Flex'
 import Cross from '../assets/Cross.png'
 import { useDispatch, useSelector } from 'react-redux'
-import { cartRemoveReducer, decrementRedcucer, incrementRedcucer } from '../Redux/Slices/productSlice'
+import { cartRemoveReducer, decrementRedcucer, incrementRedcucer, subTotalReducer } from '../Redux/Slices/ProductSlice'
 import { Bounce, toast } from 'react-toastify'
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 
@@ -24,14 +24,17 @@ const CartItem = ({imgSrc, productName, price, subTotal, id, quantity}) => {
   }
     const handleDelete = ()=>{
         toastRemoveNotify('Cart')
-        dispatch(cartRemoveReducer(id))  
+        dispatch(cartRemoveReducer(id))
+        dispatch(subTotalReducer())  
     }
     const handleIncrement = ()=>{
         dispatch(incrementRedcucer(id))
+        dispatch(subTotalReducer())
     }
     const handleDecrement = ()=>{
         if(quantity > 1){
             dispatch(decrementRedcucer(id))
+            dispatch(subTotalReducer())
         }
     }
   return (

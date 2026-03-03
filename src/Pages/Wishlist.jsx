@@ -9,6 +9,7 @@ import flashSales1 from "../assets/flashSales1.png";
 import flashSales2 from "../assets/flashSales2.png";
 import flashSales3 from "../assets/flashSales3.png";
 import flashSales4 from "../assets/flashSales4.png";
+import BreadCrump from '../Components/BreadCrump'
 
 const Wishlist = () => {
 
@@ -16,7 +17,8 @@ const Wishlist = () => {
   return (
     <>
         <Container className='pt-20 pb-35'>
-          <Flex className='items-center justify-between'>
+          <BreadCrump/>
+          <Flex className='items-center justify-between mt-10'>
             <h1 className='text-[20px]'>Wishlist({wishlistItems.length})</h1>
             <CommonButton
               name='Move All To Bag'

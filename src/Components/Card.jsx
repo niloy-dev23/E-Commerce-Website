@@ -4,7 +4,7 @@ import { FaRegHeart } from 'react-icons/fa';
 import { Rate } from "antd";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { cartReducer, wishlistReducer, wishlistRemoveReducer } from "../Redux/Slices/productSlice";
+import { cartReducer, subTotalReducer, wishlistReducer, wishlistRemoveReducer } from "../Redux/Slices/ProductSlice";
 import { Bounce, toast } from "react-toastify";
 import { GoHeartFill } from "react-icons/go";
 import { useState } from "react";
@@ -67,6 +67,7 @@ const Card = ({imgSrc, discount, title, price, rating, reviews, id, cardData}) =
     if(!matchedItems){
       dispatch(cartReducer({...cardData, quantity:1}))
       toastSuccessNotify('Cart')
+      dispatch(subTotalReducer())
     }
     else{
       toastErrorNotify('Cart')

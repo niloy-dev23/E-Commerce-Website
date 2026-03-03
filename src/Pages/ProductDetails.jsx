@@ -54,8 +54,8 @@ setReviewNumber(product.data.reviews)
     <>
         <Container className='pt-20 pb-35'>
             <BreadCrump className='mb-20'/>
-            <Flex className='gap-10 pb-35'>
-                <Flex className='gap-7.5'>
+            <Flex className='gap-10 pb-35 flex-col lg:flex-row'>
+                <Flex className='gap-7.5 flex-col lg:flex-row'>
                     <Flex className='flex-col gap-6'>
                         {
                             buffer ?
@@ -80,7 +80,7 @@ setReviewNumber(product.data.reviews)
                         <SkeletonBigImage/>
                     }
                 </Flex>
-                <div className='w-100'>
+                <div className=' w-[92%] lg:w-100 mx-auto'>
                             <h1 className='font-inter text-[24px] font-semibold mmb-4'>{productData.title}</h1>
                             <Flex className='gap-4 my-4'>
                                 <Flex className='gap-2 pr-4 border-r border-r-black'>
@@ -90,7 +90,7 @@ setReviewNumber(product.data.reviews)
                                 <p className='text-[14px] text-[#00FF66]'>{productData.availabilityStatus}</p>
                             </Flex>
                             <h1 className='font-inter text-[24px] mt-4 mb-5'>${productData.price}</h1>
-                            <p className='text-[14px] w-93.25 pb-6'>{productData.description}</p>
+                            <p className='text-[14px] lg:w-93.25 pb-6'>{productData.description}</p>
                     <hr />
                     <Flex className='mt-6 gap-6 items-center'>
                         <h1 className='font-inter text-[20px]'>Colours: </h1>
@@ -153,7 +153,7 @@ setReviewNumber(product.data.reviews)
             <SectionHead 
                 subtitle='Related Items'
             />
-            <Flex className='mt-15 w-full justify-between'>
+            <Flex className='mt-15 w-full lg:justify-between flex-wrap'>
                 <Card 
                 imgSrc={flashSales1}
                 discount='40'

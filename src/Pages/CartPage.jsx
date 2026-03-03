@@ -10,6 +10,7 @@ import CommonButton from '../Components/CommonButton'
 const CartPage = () => {
 
   let cartItems = useSelector((state)=>state.allData.cart)
+  let subTotal = useSelector((state)=>state.allData.subTotal)
   return (
     <Container className='pt-20 pb-35'>
         <BreadCrump className='mb-20'/>
@@ -56,7 +57,7 @@ const CartPage = () => {
             <h1 className='mb-2 font-medium text-[20px]'>Cart Total</h1>
             <Flex className='justify-between pb-4 border-b border-b-black mt-4'>
               <p>Subtotal</p>
-              <p>$1750</p>
+              <p>${subTotal.toFixed(2)}</p>
             </Flex>
             <Flex className='justify-between pb-4 border-b border-b-black mt-4'>
               <p>Shipping</p>
@@ -64,7 +65,7 @@ const CartPage = () => {
             </Flex>
             <Flex className='justify-between pb-4 border-b border-b-black mt-4'>
               <p>Total</p>
-              <p>$1750</p>
+              <p>${subTotal.toFixed(2)}</p>
             </Flex>
             <div className='w-fit m-auto'>
               <CommonButton

@@ -18,7 +18,7 @@ const Footer = () => {
     <div className='w-full pt-20 pb-6.25 bg-black text-white'>
         <Container>
             <Flex className='w-full justify-between items-center lg:items-start flex-col lg:flex-row gap-6'>
-                <div>
+                <div className='w-43.75'>
                     <h1 className='font-inter font-bold text-[24px] mb-6'>Exclusive</h1>
                     <a className='font-medium text-[20px] mt-6'>Subscribe</a>
                     <p className='mt-6 mb-4'>Get 10% off your first order</p>
@@ -48,7 +48,7 @@ const Footer = () => {
                     item3='FAQ'
                     item4='Contact'
                 />
-                <div>
+                <div className='w-43.75'>
                     <h2 className='font medium text-[20px] mb-6'>Download App</h2>
                     <p className='mb-2 font-medium text-[12px] opacity-70'>Save $3 with App New User Only</p>               
                     <div className="grid grid-cols-2 grid-rows-2 w-45 h-21 gap-1">
