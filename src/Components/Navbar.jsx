@@ -6,7 +6,7 @@ import { HiMagnifyingGlass } from "react-icons/hi2";
 import { CiHeart } from "react-icons/ci";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { AiOutlineBars } from "react-icons/ai";
-import { NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 import { useSelector } from "react-redux";
 
 const Navbar = () => {
@@ -15,10 +15,23 @@ const Navbar = () => {
   let wishlistItems = useSelector((state)=>state.allData.wishlist)
   let numberOfItems = cartItems.length
   let numberOfWishlistItems = wishlistItems.length
+  let products = useSelector((state)=>state.allData.value)
+  const [filteredProducts, setFilterProducts] = useState([])
+  // const [value, setValue] = useState("")
 
   const handleClick = () => {
     setShowBars(!showBars);
   };
+  const handleSearch = (e)=>{
+    let value = e.target.value
+     if(value.trim()===""){
+      setFilterProducts([])
+     }
+     else{
+      setFilterProducts(products.filter((item)=>item.title.toLowerCase().includes(value.toLowerCase())))
+     }
+  }
+  let navigate = useNavigate()
 
   return (
     <>
@@ -46,12 +59,24 @@ const Navbar = () => {
                 </li>
               </ul>
               <Flex className="gap-5 items-center mt-3 lg:mt-0 ">
-                <Flex className="py-1.5 px-4 items-center justify-between w-60.75 h-9.5 bg-[#F5F5F5]">
+                <Flex className="py-1.5 px-4 items-center justify-between w-60.75 h-9.5 relative bg-[#F5F5F5]">
                   <input
                     className="placeholder:font-normal placeholder:text-[14px] placeholder:opacity-50 outline-0 w-[87%]"
                     type="text"
                     placeholder="What are you looking for?"
+                    onChange={handleSearch}
                   />
+                  <ul className="bg-white text-black absolute top-9.5 w-full left-0">
+                    {
+                      filteredProducts.map((item,index)=>{
+                        return (
+                          <li onClick={()=>{navigate(`/productDetails/${item.id}`)}} key={index} className="flex border-b p-3 gap-2 cursor-pointer">
+                            <img src={item.thumbnail} alt="Image" className="w-10 h-10" />
+                            {item.title}</li>
+                        )
+                      })
+                    }
+                  </ul>
                   <HiMagnifyingGlass className="text-[18px]" />
                 </Flex>
                 <NavLink to='/Wishlist' className="relative">
