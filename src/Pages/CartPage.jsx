@@ -6,6 +6,7 @@ import CartItem from '../Components/CartItem'
 import flashSales1 from "../assets/flashSales1.png";
 import { useSelector } from 'react-redux'
 import CommonButton from '../Components/CommonButton'
+import { NavLink } from 'react-router'
 
 const CartPage = () => {
 
@@ -68,10 +69,12 @@ const CartPage = () => {
               <p>${subTotal.toFixed(2)}</p>
             </Flex>
             <div className='w-fit m-auto'>
-              <CommonButton
-                name='Proceed To Checkout'
-                className='bg-red text-white mt-6'
-              />
+              <NavLink to='/Checkout'>
+                <CommonButton
+                  name='Proceed To Checkout'
+                  className='bg-red text-white mt-6 cursor-pointer'
+                />
+              </NavLink>
             </div>
           </div>
         </Flex>

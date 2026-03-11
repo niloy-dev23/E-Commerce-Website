@@ -11,6 +11,7 @@ import ProductDetails from './Pages/ProductDetails'
 import CartPage from './Pages/CartPage'
 import { ToastContainer } from 'react-toastify'
 import Wishlist from './Pages/Wishlist'
+import Checkout from './Pages/Checkout'
 
 const router = createBrowserRouter([
   {
@@ -21,7 +22,8 @@ const router = createBrowserRouter([
       {path:'Shop', Component:Shop},
       {path:'productDetails/:id', Component:ProductDetails},
       {path:'CartPage', Component:CartPage},
-      {path:'Wishlist', Component:Wishlist}
+      {path:'Wishlist', Component:Wishlist},
+      {path:'Checkout', Component:Checkout}
     ]
   }
 ])
