@@ -5,6 +5,8 @@ import Flex from '../Components/Flex'
 import CommonInput from '../Components/CommonInput'
 import CheckoutItem from '../Components/CheckoutItem'
 import { useSelector } from 'react-redux'
+import Payments from '../assets/payments.png'
+import CommonButton from '../Components/CommonButton'
 
 const Checkout = () => {
     let cartItems = useSelector((state)=>state.allData.cart)
@@ -47,9 +49,12 @@ const Checkout = () => {
                     label="First Name"
                     required={true}
                 />
-                <input type="checkbox" className='mr-2'/> Save this information for faster checkout next-time
+                <Flex className='items-center'>
+                    <input type="checkbox" className='mr-2 w-6 h-6 bg-red'/> 
+                    <h1>Save this information for faster checkout next-time</h1>
+                </Flex>
             </div>
-            <div className='w-131.75'>
+            <div className='w-131.75 mt-20'>
                 {cartItems.map((item, index)=>{
                     return (
                         <CheckoutItem
@@ -73,9 +78,30 @@ const Checkout = () => {
               <p>Total</p>
               <p>${subTotal.toFixed(2)}</p>
             </Flex>
-            <Flex>
-                <div><input type="radio" /></div>
-            </Flex>
+            <div className='mt-9 w-full'>
+                <Flex className='gap-4 items-center w-full'>
+                    <input type="radio" className='w-6 h-6' name='paymentChoice'/>
+                    <Flex className='gap-64.75 items-center'>
+                        <h1>Bank</h1>
+                        <img src={Payments} alt="Banks" />
+                    </Flex>
+                </Flex>
+                <Flex className='gap-4 items-center w-full my-8'>
+                    <input type="radio" className='w-6 h-6' name='paymentChoice'/>
+                    <h1>Cash On Delivery</h1>
+                </Flex>
+                <Flex className='h-14 gap-4'>
+                    <input type="text" placeholder='Coupon Code' className='px-6 py-4 outline-0 border border-black rounded-sm w-75'/>
+                    <CommonButton
+                        name='Apply Coupon'
+                        className='bg-red text-white cursor-pointer'
+                    />
+                </Flex>
+                <CommonButton
+                        name='Place Order'
+                        className='bg-red text-white mt-8 cursor-pointer'
+                />
+            </div>
             </div>
         </Flex>
     </Container>
