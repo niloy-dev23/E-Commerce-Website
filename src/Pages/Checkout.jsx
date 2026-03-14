@@ -14,9 +14,9 @@ const Checkout = () => {
   return (
     <Container className='pt-20 pb-35'>
         <BreadCrump/>
-        <h1 className='font-inter font-medium text-[36px] mt-20'>Billing Details</h1>
-        <Flex className='justify-between'>
-            <div className='w-117.5 mt-12'>
+        <h1 className='font-inter font-medium text-[36px] mt-20 ml-4 lg:ml-0'>Billing Details</h1>
+        <Flex className='justify-between flex-col lg:flex-row'>
+            <div className='lg:w-117.5 mt-12 w-[90%] m-auto lg:m-0'>
                 <CommonInput
                     label="First Name"
                     required={true}
@@ -54,7 +54,7 @@ const Checkout = () => {
                     <h1>Save this information for faster checkout next-time</h1>
                 </Flex>
             </div>
-            <div className='w-131.75 mt-20'>
+            <div className='lg:w-131.75 w-[90%] m-auto mt-20'>
                 {cartItems.map((item, index)=>{
                     return (
                         <CheckoutItem
