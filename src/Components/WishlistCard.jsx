@@ -3,7 +3,7 @@ import { Rate } from "antd";
 import { useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import { Bounce, toast } from "react-toastify";
-import { cartReducer, wishlistRemoveReducer } from "../Redux/Slices/productSlice";
+import { cartReducer, wishlistRemoveReducer } from "../Redux/Slices/ProductSlice";
 
 
 const WishlistCard = ({imgSrc, discount, title,id, price, rating, reviews, cardData}) => {
