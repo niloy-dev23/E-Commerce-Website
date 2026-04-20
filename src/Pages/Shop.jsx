@@ -29,23 +29,16 @@ const Shop = () => {
   useEffect(()=>{
     apiFetch()
   }, [])
-
   useEffect(()=>{
     let uniqueCategories = [...new Set(productData.map((item)=>(item.category)))]
     setCategories(uniqueCategories)
-
-
   }, [productData])
-
   const categoryClick = (item)=>{
     let categoryItems = productData.filter((categoryItem)=>categoryItem.category == item)
     dispatch(categoryReducer(categoryItems))
   }
-  
-  
   return (
     <>
-
       <Container>
         <BreadCrump className='mt-20 mb-12.5'/>
         <Flex className='justify-between flex-col lg:flex-row items-center'>
