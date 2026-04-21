@@ -20,9 +20,9 @@ const Contact = () => {
             <Flex className='gap-10 justify-between flex-col lg:flex-row'>
                 <div>
                     <h3 className='text-[19px] font-medium my-4'>Name</h3>
-                    <input type="text" placeholder='Type your name' className='px-7 py-5 bg-gray-200 outline-0 rounded-4xl w-full'/>
+                    <input type="text" placeholder='Name' className='w-full py-2 outline-0 border-b placeholder:opacity-50 mb-10'/>
                     <h3 className='text-[19px] font-medium my-4'>Email</h3>
-                    <input type="text" placeholder='example@gmail.com' className='px-7 py-5 bg-gray-200 outline-0 rounded-4xl w-full'/>
+                    <input type="text" placeholder='Name' className='w-full py-2 outline-0 border-b placeholder:opacity-50 mb-10'/>
                     <h3 className='text-[19px] font-medium my-4'>Message</h3>
                     <textarea rows={4} cols={60} placeholder='Tell your experience or any recommendation' className='px-7 py-5 bg-gray-200 outline-0 rounded-4xl w-full'></textarea>
                     <CommonButton

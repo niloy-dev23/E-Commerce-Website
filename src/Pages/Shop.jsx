@@ -12,29 +12,18 @@ import { categoryReducer, productReducer } from "../Redux/Slices/ProductSlice";
 
 
 const Shop = () => {
-
-  const [productData, setProductData] = useState([])
-  const [buffer, setBuffer] = useState(false)
+  let buffer = useSelector((state)=>state.allData.buffer)
+  console.log(buffer)
   const [categories, setCategories] = useState([])
   const [pageNumber, setPageNumber] = useState(6)
-
+  let allProducts = useSelector((state)=>state.allData.value)
   const dispatch = useDispatch()
-
-  async function apiFetch(){
-   await axios.get('https://dummyjson.com/products')
-    .then((product)=>{setProductData(product.data.products); 
-      dispatch(productReducer(product.data.products))
-      setBuffer(true)})
-  }
   useEffect(()=>{
-    apiFetch()
-  }, [])
-  useEffect(()=>{
-    let uniqueCategories = [...new Set(productData.map((item)=>(item.category)))]
+    let uniqueCategories = [...new Set(allProducts.map((item)=>(item.category)))]
     setCategories(uniqueCategories)
-  }, [productData])
+  }, [allProducts])
   const categoryClick = (item)=>{
-    let categoryItems = productData.filter((categoryItem)=>categoryItem.category == item)
+    let categoryItems = allProducts.filter((categoryItem)=>categoryItem.category == item)
     dispatch(categoryReducer(categoryItems))
   }
   return (

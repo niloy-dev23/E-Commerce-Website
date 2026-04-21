@@ -6,11 +6,15 @@ export const ProductSlice = createSlice({
     value: [],
     cart: localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [],
     wishlist:localStorage.getItem("wishlist") ? JSON.parse(localStorage.getItem("wishlist")) : [],
-    subTotal:localStorage.getItem("subTotal") ? JSON.parse(localStorage.getItem("subTotal")) : 0
+    subTotal:localStorage.getItem("subTotal") ? JSON.parse(localStorage.getItem("subTotal")) : 0,
+    buffer:false,
   },
   reducers: {
     productReducer : (state, action)=>{
         state.value = action.payload
+    },
+    cardBufferReducer:(state)=>{
+        state.buffer=true
     },
     categoryReducer: (state, action)=>{
         state.value = action.payload
@@ -47,6 +51,6 @@ export const ProductSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { productReducer, categoryReducer, cartReducer, wishlistReducer, wishlistRemoveReducer, cartRemoveReducer, incrementRedcucer, decrementRedcucer, subTotalReducer } = ProductSlice.actions
+export const { productReducer, categoryReducer, cartReducer, wishlistReducer, wishlistRemoveReducer, cartRemoveReducer, incrementRedcucer, decrementRedcucer, subTotalReducer, cardBufferReducer } = ProductSlice.actions
 
 export default ProductSlice.reducer

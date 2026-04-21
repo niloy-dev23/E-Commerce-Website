@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Container from "./Container";
 import flashSales1 from "../assets/flashSales1.png";
 import flashSales2 from "../assets/flashSales2.png";
@@ -12,8 +12,24 @@ import Counter from "./Counter";
 import Flex from "./Flex";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import CommonButton from "./CommonButton";
+import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
+import { cardBufferReducer, productReducer } from "../Redux/Slices/ProductSlice";
 
 const FlashSales = () => {
+    const dispatch = useDispatch()
+  
+    async function apiFetch(){
+     await axios.get('https://dummyjson.com/products')
+      .then((product)=>{
+        dispatch(productReducer(product.data.products))});
+        dispatch(cardBufferReducer())
+    }
+    useEffect(()=>{
+      apiFetch()
+    }, [])
+  let allProducts = useSelector((state)=>state.allData.value)
+  console.log(allProducts)
   function SampleNextArrow(props) {
     const { className, onClick } = props;
     return (
@@ -79,54 +95,22 @@ const FlashSales = () => {
         </Flex>
         <div className="mt-10 slider-container">
           <Slider {...settings} className="flex gap-x-7.5 justify-center">
-            <Card 
-              imgSrc={flashSales1}
-              discount='40'
-              title='HAVIT HV-G92 Gamepad'
-              price='160'
-              rating='4.2'
-              reviews='88'
-            />
-            <Card 
-              imgSrc={flashSales2}
-              discount='35'
-              title='AK-900 Wired Keyboard'
-              price='1160'
-              rating='4.2'
-              reviews='88'
-            />
-            <Card 
-              imgSrc={flashSales3}
-              discount='30'
-              title='IPS LCD Gaming Monitor'
-              price='400'
-              rating='4.2'
-              reviews='88'
-            />
-            <Card 
-              imgSrc={flashSales4}
-              discount='25'
-              title='S-Series Comfort Chair'
-              price='400'
-              rating='4.2'
-              reviews='88'
-            />
-            <Card 
-              imgSrc={flashSales1}
-              discount='40'
-              title='HAVIT HV-G92 Gamepad'
-              price='160'
-              rating='4.2'
-              reviews='88'
-            />
-            <Card 
-              imgSrc={flashSales2}
-              discount='35'
-              title='AK-900 Wired Keyboard'
-              price='1160'
-              rating='4.2'
-              reviews='88'
-            />
+            {
+              allProducts.map((item,index)=>(
+                <Card 
+                    wishlistData={item}
+                    cardData={item}
+                    key={index}
+                    id={item.id}
+                    imgSrc={item.thumbnail}
+                    discount={item.discountPercentage}
+                    title={item.title}
+                    price={item.price}
+                    reviews={item.reviews.length}
+                    rating={item.rating}
+                  />
+              ))
+            }
           </Slider>
         </div>
         <div className="text-center mt-9.25">
