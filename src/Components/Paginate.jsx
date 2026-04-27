@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 
 const Paginate = ({ itemsPerPage }) => {
 
-  let allProducts = useSelector((state)=>state.allData.value)
+  let allProducts = useSelector((state)=>state.allData.categoryItems)
   const items = allProducts
   function Items({ currentItems }) {
   return (

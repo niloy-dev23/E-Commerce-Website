@@ -4,6 +4,7 @@ export const ProductSlice = createSlice({
   name: 'counter',
   initialState: {
     value: [],
+    categoryItems: [],
     cart: localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : [],
     wishlist:localStorage.getItem("wishlist") ? JSON.parse(localStorage.getItem("wishlist")) : [],
     subTotal:localStorage.getItem("subTotal") ? JSON.parse(localStorage.getItem("subTotal")) : 0,
@@ -13,11 +14,14 @@ export const ProductSlice = createSlice({
     productReducer : (state, action)=>{
         state.value = action.payload
     },
+    categoryItemsReducer: (state, action)=>{
+        state.categoryItems = action.payload
+    },
     cardBufferReducer:(state)=>{
         state.buffer=true
     },
     categoryReducer: (state, action)=>{
-        state.value = action.payload
+        state.categoryItems = action.payload
     },
     cartReducer:(state, action)=>{
         state.cart = [...state.cart, action.payload]

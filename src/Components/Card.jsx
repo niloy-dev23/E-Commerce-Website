@@ -21,7 +21,6 @@ const Card = ({imgSrc, discount, title, price, rating, reviews, id, cardData}) =
   
   // const [love, setLove] = useState(false)
   let love = localStorage.getItem(`love ${id}`) ? JSON.parse(localStorage.getItem(`love ${id}`)) : false
-  console.log(typeof love)
   const toastSuccessNotify = (name)=>{
     toast.success(`Product added to ${name}`, {
         position: "top-right",

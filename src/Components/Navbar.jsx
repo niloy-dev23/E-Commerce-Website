@@ -32,7 +32,6 @@ const Navbar = () => {
      }
   }
   let navigate = useNavigate()
-
   return (
     <>
       <div className="w-full border-b border-b-[#000000]">

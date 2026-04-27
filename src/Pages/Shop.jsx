@@ -8,16 +8,18 @@ import BreadCrump from "../Components/BreadCrump";
 import Paginate from "../Components/Paginate";
 import Skeleton from "../Components/Skeleton";
 import { useDispatch, useSelector } from "react-redux";
-import { categoryReducer, productReducer } from "../Redux/Slices/ProductSlice";
+import { cardBufferReducer, categoryReducer, productReducer } from "../Redux/Slices/ProductSlice";
 
 
 const Shop = () => {
+  let dispatch = useDispatch()
+  let allProducts = useSelector((state)=>state.allData.value)
+  let categoryProducts = useSelector((state)=>state.allData.categoryItems)
+  console.log(categoryProducts)
   let buffer = useSelector((state)=>state.allData.buffer)
-  console.log(buffer)
+  let [products, setProducts] = useState([])
   const [categories, setCategories] = useState([])
   const [pageNumber, setPageNumber] = useState(6)
-  let allProducts = useSelector((state)=>state.allData.value)
-  const dispatch = useDispatch()
   useEffect(()=>{
     let uniqueCategories = [...new Set(allProducts.map((item)=>(item.category)))]
     setCategories(uniqueCategories)
@@ -42,7 +44,7 @@ const Shop = () => {
            <div className="lg:w-[17%] w-full mx-auto text-center lg:text-left mt-5 lg:mt-0">
               <div>
                 <ul className="flex flex-col gap-4">
-                  <li onClick={()=>{dispatch(productReducer(productData))}} className="cursor-pointer capitalize">All Products</li>
+                  <li onClick={()=>{dispatch(categoryReducer(allProducts))}} className="cursor-pointer capitalize">All Products</li>
                   {
                     categories.map((item, index)=>{
                        return (
@@ -69,7 +71,7 @@ const Shop = () => {
               </Flex>
             </div>
               
-          <Flex className='flex-wrap gap-7.5 mb-31.5 text-left lg:w-[83%] w-full lg:ml-24.25'>
+          <Flex className='flex-wrap gap-5.75 mb-31.5 text-left lg:w-[83%] w-full lg:ml-24.25'>
             {buffer ? 
             <Paginate itemsPerPage={pageNumber}/>
              : 

@@ -14,7 +14,7 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import CommonButton from "./CommonButton";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import { cardBufferReducer, productReducer } from "../Redux/Slices/ProductSlice";
+import { cardBufferReducer, categoryReducer, productReducer } from "../Redux/Slices/ProductSlice";
 
 const FlashSales = () => {
     const dispatch = useDispatch()
@@ -22,14 +22,16 @@ const FlashSales = () => {
     async function apiFetch(){
      await axios.get('https://dummyjson.com/products')
       .then((product)=>{
-        dispatch(productReducer(product.data.products))});
-        dispatch(cardBufferReducer())
+        dispatch(productReducer(product.data.products))
+        dispatch(categoryReducer(product.data.products))
+      });
+        dispatch(cardBufferReducer());
+      
     }
     useEffect(()=>{
       apiFetch()
     }, [])
   let allProducts = useSelector((state)=>state.allData.value)
-  console.log(allProducts)
   function SampleNextArrow(props) {
     const { className, onClick } = props;
     return (
